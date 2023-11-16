@@ -1,0 +1,13 @@
+:root{
+    --primaryColor:  #b6c9ff;
+    --secondaryColor:   #87bebb;
+    --fontPrimary: 'ProximaNova', sans-serif;
+    --textColor: #111;
+    --bgBody: #F7F8FB;
+    --title_1: 40px;
+    --title_2: 36px;
+    --title_3: 32px;
+    --title_4: 24px;
+    --title_5: 20px;
+    --title_6: 16px;
+}
