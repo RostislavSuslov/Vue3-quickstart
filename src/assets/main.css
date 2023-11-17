@@ -5,7 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -13,4 +13,17 @@ body {
     font-family: var(--fontPrimary);
     color: var(--textColor);
     background-color: var(--bgBody);
+}
+
+p {
+    margin-bottom: .7rem;
+}
+
+a {
+    color: var(--primaryColor);
+    text-decoration: underline;
+}
+
+a:hover{
+    text-decoration: none;
 }
