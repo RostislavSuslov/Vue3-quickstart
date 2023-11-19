@@ -1,15 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <BaseContainer>
+      <BaseTypography tag="h1" variant="h1">
+        This is an about page
+      </BaseTypography>
+    </BaseContainer>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script setup>
+  import BaseContainer from "@/components/partials/BaseContainer.vue";
+  import BaseTypography from "@/components/ui/BaseTypography.vue";
+</script>

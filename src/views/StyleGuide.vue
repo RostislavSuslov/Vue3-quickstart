@@ -1,7 +1,12 @@
 <template>
-  <div class="container px-4 mx-auto">
-    <h1 class="text-title_1 mb-4 pt-2">Style Guide</h1>
-    <div class="grid grid-cols-3 grid-rows-3 gap-8">
+  <BaseContainer>
+    <BaseTypography tag="h1" variant="h1">
+      Style Guide
+    </BaseTypography>
+    <div class="grid xl:grid-cols-3 xl:grid-rows-3 lg:grid-cols-2 lg:grid-rows-2 grid-cols-1 grid-rows-1 gap-8">
+      <PartialsCart>
+        <BaseIcon/>
+      </PartialsCart>
       <BaseColors/>
       <BaseText/>
       <BaseOrderList/>
@@ -10,7 +15,7 @@
       <BaseFontWeight/>
       <BaseTitle/>
     </div>
-  </div>
+  </BaseContainer>
 </template>
 
 <script setup>
@@ -21,5 +26,9 @@
   import BaseFontFamily from "@/components/ui/BaseFontFamily.vue";
   import BaseFontWeight from "@/components/ui/BaseFontWeight.vue";
   import BaseTitle from "@/components/ui/BaseTitle.vue";
+  import BaseContainer from "@/components/partials/BaseContainer.vue";
+  import BaseTypography from "@/components/ui/BaseTypography.vue";
+  import BaseIcon from "@/components/ui/BaseIcon.vue";
+  import PartialsCart from "@/components/partials/PartialsCart.vue";
 </script>
 

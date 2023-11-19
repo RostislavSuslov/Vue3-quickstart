@@ -1,6 +1,8 @@
 <template>
-  <div class="border p-8">
-    <h4 class="text-title_4">3. Ordered lists</h4>
+  <PartialsCart>
+    <BaseTypography tag="h4" variant="h4">
+      3. Ordered lists
+    </BaseTypography>
     <ol>
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum dolor.</li>
@@ -14,9 +16,10 @@
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum dolor.</li>
     </ol>
-  </div>
+  </PartialsCart>
 </template>
 
 <script setup>
-
+  import BaseTypography from "@/components/ui/BaseTypography.vue";
+  import PartialsCart from "@/components/partials/PartialsCart.vue";
 </script>

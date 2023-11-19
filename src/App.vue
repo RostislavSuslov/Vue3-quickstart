@@ -1,7 +1,7 @@
 <template>
   <div id="root">
-    <BaseHeader />
-    <RouterView />
+      <BaseHeader />
+      <RouterView />
   </div>
 </template>
 <script setup>

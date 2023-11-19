@@ -1,22 +1,25 @@
 <template>
-  <div class="border p-8">
-    <h4 class="text-title_4">4. Unordered lists</h4>
+  <PartialsCart>
+    <BaseTypography tag="h4" variant="h4">
+      4. Unordered lists
+    </BaseTypography>
     <ul>
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum dolor.
-        <ol>
+        <ul>
           <li>Lorem, ipsum dolor.</li>
           <li>Lorem, ipsum dolor.</li>
           <li>Lorem, ipsum dolor.</li>
-        </ol>
+        </ul>
       </li>
       <li>Lorem, ipsum dolor.</li>
       <li>Lorem, ipsum dolor.</li>
     </ul>
-  </div>
+  </PartialsCart>
 </template>
 
 <script setup>
-
+  import BaseTypography from "@/components/ui/BaseTypography.vue";
+  import PartialsCart from "@/components/partials/PartialsCart.vue";
 </script>
