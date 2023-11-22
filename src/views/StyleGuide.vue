@@ -6,6 +6,7 @@
     <div class="grid xl:grid-cols-3 xl:grid-rows-3 lg:grid-cols-2 lg:grid-rows-2 grid-cols-1 grid-rows-1 gap-8">
       <PartialsCart>
         <BaseIcon/>
+        <PrepareButton color="success" :right-icon="FireIcon" :loading="isSubmitting">Submit</PrepareButton>
       </PartialsCart>
       <BaseColors/>
       <BaseText/>
@@ -30,5 +31,8 @@
   import BaseTypography from "@/components/ui/BaseTypography.vue";
   import BaseIcon from "@/components/ui/BaseIcon.vue";
   import PartialsCart from "@/components/partials/PartialsCart.vue";
+  import PrepareButton from "@/components/ui/PrepareButton.vue";
+
+  import {FireIcon} from '@heroicons/vue/20/solid'
 </script>
 
