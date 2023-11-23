@@ -1,39 +1,23 @@
 <template>
   <div>
-    <label>Second input</label>
-    <input
-        type="text"
-        :value="modelValue"
-        @input="$emit('update:modelValue', $event.target.value)"
-        class="border border-gray-600"
-    />
-    <teleport to="body">
-      <custom-modal
-          :open-modal="openModal"
-          @confirm="submitForm"
-          @update:open-modal="onChangeModal"
-      />
-    </teleport>
+
     <form
         @submit="onSubmit"
         class="flex flex-col items-center border-2 px-6 py-10 max-w-xl mx-auto mb-6 rounded-[4px]"
     >
-      <label>Select your role:</label>
-      <controlled-field
-          variant="outlined"
-          name="person"
-          :label="key"
-          v-for="(value, key) in PERSONS"
-          :value="value"
-          :key="value"
-      />
       <text-field
           type="email"
           name="email"
           label="Email"
           placeholder="Your email"
       />
-      <component :is="activeFields" />
+      <text-field
+          name="phoneNumber"
+          type="phone"
+          label="Phone"
+          placeholder="(999) 99-99-999"
+          mask="'+38 (000)-00-00-000'"
+      />
       <password-field
           :type="showPassword ? 'text' : 'password'"
           name="password"
@@ -55,71 +39,53 @@
         />
         <label for="togglePassword" class="ml-2">Show Password</label>
       </div>
-
-      <button
-          :disabled="loading"
-          class="w-full disabled:bg-gray-500 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-sans rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        Submit
-      </button>
+      <BaseButton :disabled="loading">Submit</BaseButton>
       <pre>{{ errors }}</pre>
       <pre>{{ values }}</pre>
     </form>
+
+    <teleport to="body">
+      <BaseModal
+          :open-modal="openModal"
+          @confirm="submitForm"
+          @update:open-modal="onChangeModal"
+      />
+    </teleport>
   </div>
 </template>
 <script setup>
 import * as yup from "yup";
 import "yup-phone";
 import { useForm } from "vee-validate";
-import { computed, ref } from "vue";
-import ControlledField from "@/components/ControlledField.vue";
-import TextField from "@/components/TextField.vue";
-import PasswordField from "@/components/PasswordField.vue";
-import RolesFormTeacher from "@/components/RolesFormTeacher.vue";
-import RolesFormStudent from "@/components/RolesFormStudent.vue";
-import CustomModal from "@/components/CustomModal.vue";
+import { ref } from "vue";
+
+import TextField from "@/components/ui/TextField.vue";
+import PasswordField from "@/components/ui/PasswordField.vue";
+import BaseModal from "@/components/ui/BaseModal.vue";
 import randomGenerator from "@/utils/randomGenerator";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 defineProps({
   modelValue: String,
 });
 
-const emit = defineEmits(["success", "error", "update:modelValue"]);
-
+const loading = ref(false);
 const showPassword = ref(false);
-
-const PERSONS = {
-  Teacher: "Teacher",
-  Student: "Student",
-};
-
-const tabs = {
-  [PERSONS.Teacher]: RolesFormTeacher,
-  [PERSONS.Student]: RolesFormStudent,
-};
+const openModal = ref(false);
 
 const initialValue = {
-  person: PERSONS.Teacher,
-  name: "",
+  email: "",
+  phone: "",
+  password: "",
+  confirmPassword: "",
 };
 
 const { handleSubmit, values, errors, resetForm } = useForm({
   initialValues: initialValue,
   validationSchema: yup.object({
     email: yup.string().required().email(),
-
-    phoneNumber: yup.string().when("person", {
-      is: PERSONS.Teacher,
-      then: (schema) => schema.required().min(13),
-    }),
-
-    series_passport: yup.string().when("person", {
-      is: PERSONS.Teacher,
-      then: (schema) => schema.required().min(8),
-    }),
-
+    phoneNumber: yup.string().required().min(13),
     password: yup.string().required().min(6),
-
     confirmPassword: yup
         .string()
         .required()
@@ -128,12 +94,6 @@ const { handleSubmit, values, errors, resetForm } = useForm({
   }),
 });
 
-const activeFields = computed(() => {
-  return tabs[values.person];
-});
-
-const openModal = ref(false);
-const loading = ref(false);
 const submitForm = async () => {
   loading.value = true;
 
@@ -145,13 +105,13 @@ const submitForm = async () => {
           return;
         }
         reject("myError");
-      }, 300);
+      }, 800);
     });
-    emit("success");
-    resetForm();
+
     console.log(JSON.stringify(values, null, 2));
+    resetForm();
   } catch (error) {
-    emit("error");
+
     console.log(error);
   } finally {
     loading.value = false;

@@ -4,14 +4,7 @@
       Style Guide
     </BaseTypography>
     <div class="grid xl:grid-cols-3 xl:grid-rows-3 lg:grid-cols-2 lg:grid-rows-2 grid-cols-1 grid-rows-1 gap-8">
-
-
-      <RolesFormForModal
-          @success="onSuccess"  @error="onError"
-          v-model="myInput"/>
-
-
-
+      <BaseForm/>
       <BaseAllButtons/>
       <BaseColors/>
       <BaseText/>
@@ -34,10 +27,9 @@
   import BaseTitle from "@/components/ui/BaseTitle.vue";
   import BaseContainer from "@/components/partials/BaseContainer.vue";
   import BaseTypography from "@/components/ui/BaseTypography.vue";
-  import PartialsCart from "@/components/partials/PartialsCart.vue";
-  import BaseButton from "@/components/ui/BaseButton.vue";
   import BaseAllButtons from "@/components/ui/BaseAllButtons.vue";
-  import RolesFormForModal from "@/components/RolesFormForModal.vue";
+  import BaseForm from "@/components/ui/BaseForm.vue";
+
 
 </script>
 

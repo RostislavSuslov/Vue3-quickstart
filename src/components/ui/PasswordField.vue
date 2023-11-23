@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import FieldWrapper from "@/components/FieldWrapper.vue";
+import FieldWrapper from "@/components/ui/FieldWrapper.vue";
 import { useField } from "vee-validate";
 
 const props = defineProps({

@@ -13,9 +13,7 @@
             <li class="mx-2">
               <RouterLink to="/Style-guide" class="px-4">Style guide</RouterLink>
             </li>
-            <li class="mx-2">
-              <RouterLink to="/registration-form" class="px-4">registration-form</RouterLink>
-            </li>
+
           </ul>
         </nav>
       </BaseContainer>

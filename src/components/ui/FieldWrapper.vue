@@ -1,5 +1,5 @@
 <template>
-  <div :class="wrapperClass">
+  <div :class="wrapperClass" >
     <slot />
     <label v-if="label" :class="labelClass">
       {{ label }}
@@ -54,15 +54,17 @@ const wrapperClass = computed(() => {
   ];
 });
 
-const labelClass = computed(() => {
-  return [
-    "pointer-events-none",
-    "bg-white",
-    "left-3",
-    {
-      "top-0": props.labelPosition === "top",
-      "right-0": props.labelPosition === "right",
-    },
-  ];
-});
+ const labelClass = computed(() => {
+   return [
+     "pointer-events-none",
+     "bg-white",
+     "left-3",
+     {
+       "top-0": props.labelPosition === "top",
+       "right-0": props.labelPosition === "right",
+     },
+   ];
+ });
+
+
 </script>
