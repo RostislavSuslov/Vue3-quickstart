@@ -1,7 +1,7 @@
 <script setup>
 import {computed} from "vue";
 import {cva} from "class-variance-authority";
-import IconUnicorn from "@/components/icons/IconUnicorn.vue";
+import IconLoading from "@/components/icons/IconLoading.vue";
 
 const props = defineProps({
   as: {
@@ -67,23 +67,23 @@ const buttonClass = computed(()=> {
       {
         variants: {
           contained: {
-            primary:   "bg-purple-500 text-white hover:bg-purple-700",
-            secondary: "bg-pink-500   text-white hover:bg-pink-700",
-            success:   "bg-green-500  text-white hover:bg-green-700",
-            warning:   "bg-orange-500 text-white hover:bg-orange-700",
-            danger:    "bg-red-500    text-white hover:bg-red-700",
-            info:      "bg-sky-500    text-white hover:bg-sky-700",
+            primary:   "bg-primaryAccent    border-primaryColor     text-white       hover:text-textColor   hover:bg-primaryColor",
+            secondary: "bg-secondaryColor   border-secondaryColor   text-textColor   hover:bg-secondaryAccent",
+            success:   "bg-green-500  border-green-500  text-white hover:bg-green-700",
+            warning:   "bg-orange-500 border-orange-500 text-white hover:bg-orange-700",
+            danger:    "bg-red-500    border-red-500    text-white hover:bg-red-700",
+            info:      "bg-sky-500    border-sky-500    text-white hover:bg-sky-700",
           },
           outlined: {
-            primary:   "border-purple-500 text-purple-500 hover:bg-purple-700  hover:text-white",
-            secondary: "border-pink-500   text-pink-500   hover:bg-pink-700    hover:text-white",
+            primary:   "border-primaryAccent    text-textColor   hover:bg-primaryAccent         hover:text-white",
+            secondary: "border-secondaryAccent  text-textColor   hover:border-secondaryAccent   hover:bg-secondaryColor",
             success:   "border-green-500  text-green-500  hover:bg-green-700   hover:text-white",
             warning:   "border-orange-500 text-orange-500 hover:bg-orange-700  hover:text-white",
             danger:    "border-red-500    text-red-500    hover:bg-red-700     hover:text-white",
             info:      "border-sky-500    text-sky-500    hover:bg-sky-700     hover:text-white",
           },
           disabled: {
-            true: "bg-purple-300 text-gray-600 !cursor-not-allowed"
+            true: "bg-gray-400 !cursor-not-allowed"
           },
           borderRadius:{
             none: 'rounded-none',
@@ -106,7 +106,7 @@ const buttonClass = computed(()=> {
 
 <template>
   <component :is="as" :disabled="isDisabled" :class="buttonClass" >
-    <IconUnicorn v-if="loading" />
+    <IconLoading v-if="loading" />
     <component
         :is="leftIcon"
         :class="[

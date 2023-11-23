@@ -1,6 +1,8 @@
 :root{
     --primaryColor:  #b6c9ff;
-    --secondaryColor:   #87bebb;
+    --primaryAccent: #6b8af5;
+    --secondaryColor: #87bebb;
+    --secondaryAccent: #3ebab6;
     --fontPrimary: 'ProximaNova', sans-serif;
     --textColor: #1F1F1F;
     --bgBody: #F7F8FB;

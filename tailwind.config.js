@@ -11,12 +11,14 @@ export default {
     },
     extend: {
       colors: {
-        primaryColor:   'var(--primaryColor)',
-        secondaryColor: 'var(--secondaryColor)',
-        bgBody:         'var(--bgBody)',
+        primaryColor:    'var(--primaryColor)',
+        primaryAccent:   'var(--primaryAccent)',
+        secondaryColor:  'var(--secondaryColor)',
+        secondaryAccent: 'var(--secondaryAccent)',
+        textColor:       'var(--textColor)',
+        bgBody:          'var(--bgBody)',
       },
     },
   },
   plugins: [],
 }
-
